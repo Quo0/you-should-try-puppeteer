@@ -1,0 +1,22 @@
+{
+  "name": "jest-with-puppeteer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand --forceExit --detectOpenHandles",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js",
+    "multiple-browsers": "jest --forceExit --detectOpenHandles --testPathPattern=code-pen.spec.js",
+    "skip-test-wrapper": "jest --forceExit --detectOpenHandles --testPathPattern=code-pen-with-skip-test-wrapper.spec.js",
+    "severity-wrapper": "jest --forceExit --detectOpenHandles --testPathPattern=code-pen-with-severity-wrapper.spec.js",
+    "test-block-fabric": "jest --forceExit --detectOpenHandles --testPathPattern=code-pen-with-test-block-fabric.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^24.9.0",
+    "jest-html-reporters": "^1.2.0",
+    "jest-puppeteer": "^4.4.0"
+  }
+}

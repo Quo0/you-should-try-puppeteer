@@ -1,0 +1,29 @@
+{
+  "name": "electron-with-jest-with-puppeteer",  
+  "version": "1.0.0",
+  "description": "electron app which you can test",
+  "main": "electron-app/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "jest --runInBand --forceExit --detectOpenHandles",
+    "test-without-jest": "node electron-tests/test-electron-without-jest.js",
+    "build-electron": "electron-builder"
+  },
+  "build": {
+    "appId": "ololo.app",
+    "productName": "ololo",
+    "win": {
+      "icon": "electron-app/build/icon.ico"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.7",
+    "electron-builder": "^21.2.0",
+    "jest": "^24.9.0",
+    "jest-html-reporters": "^1.2.1",
+    "puppeteer-core": "^2.0.0",
+    "tree-kill": "^1.2.2"
+  }
+}

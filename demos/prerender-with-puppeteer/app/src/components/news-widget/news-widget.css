@@ -1,0 +1,7 @@
+.news-widget__loading {
+  margin: 100px auto;
+  font-size: 20px;
+  font-family: monospace;
+  text-transform: lowercase;
+  text-align: center;
+}

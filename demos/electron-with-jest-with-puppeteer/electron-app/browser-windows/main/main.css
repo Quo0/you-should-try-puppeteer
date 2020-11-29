@@ -1,0 +1,25 @@
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-family: monospace;
+  text-align: center;
+  height: 90vh;
+}
+
+#greeting-block {
+  display: none;
+}
+
+h1  {
+  color: lightcoral;
+}
+
+button {
+  padding: 4px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid lightcoral;
+  cursor: pointer;
+}

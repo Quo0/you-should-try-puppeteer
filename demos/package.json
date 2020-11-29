@@ -1,0 +1,29 @@
+{
+  "name": "puppeteer-demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "demo1-code-pen__one-context": "node ./code-pen/one-context.js",
+    "demo2-code-pen__multiple-contexts": "node ./code-pen/multiple-contexts.js",
+    "demo3-jest-with-puppeteer__multiple-browsers": "cd jest-with-puppeteer && npm run multiple-browsers",
+    "demo4-jest-with-puppeteer__skip-test-wrapper": "cd jest-with-puppeteer && npm run skip-test-wrapper",
+    "demo5-jest-with-puppeteer__severity-wrapper": "cd jest-with-puppeteer && npm run severity-wrapper",
+    "demo6-jest-with-puppeteer__test-block-fabric": "cd jest-with-puppeteer && npm run test-block-fabric",
+    "demo7-electron-with-puppeteer__test-without-jest": "cd electron-with-jest-with-puppeteer && npm run test-without-jest",
+    "demo8-electron-with-puppeteer__with-jest": "cd electron-with-jest-with-puppeteer && npm run test",
+    "demo9-request-interception__ignoring-certain-resource-types": "node ./request-interception/ignoring-certain-resource-types.js",
+    "demo10-request-interception__downloading-images": "node ./request-interception/downloading-images-from-responses/downloading-images-from-responses.js",
+    "demo11-request-interception__mocking-the-response": "node ./request-interception/mocking-the-response/mocking-the-response.js",
+    "demo12-captcha__reddit": "node ./captcha/reddit-captcha.js",
+    "demo13-captcha__google": "node ./captcha/google-captcha-demo-page.js",
+    "demo14-shadow-root": "node ./shadow-root/bypass-closed-shadow-root-with-puppeteer.js",
+    "demo15-prerendering-server": "node ./prerender-with-puppeteer/server.js",
+    "demo16-prerendering-server__is-bot": "set IS_BOT=true && node ./prerender-with-puppeteer/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^3.0.0"
+  }
+}

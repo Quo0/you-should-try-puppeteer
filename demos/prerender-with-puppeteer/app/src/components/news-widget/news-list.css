@@ -1,0 +1,26 @@
+.news-post * {
+  width: 100%;
+}
+
+.news-post__title {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 50px 100px;
+  border-top: 1px solid deepskyblue;
+}
+.news-post__expand-button {
+  display: block;
+  width: 100px;
+  margin: 20px auto;
+  border: none;
+  border-bottom: 1px solid hotpink;
+  background: none;
+  color: hotpink;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+.news-post__expand-button:hover {
+  border-bottom: 1px solid deepskyblue;
+  color: deepskyblue;
+}

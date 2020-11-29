@@ -1,0 +1,27 @@
+#registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-family: monospace;
+  text-align: center;
+  height: 90vh;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 2px 16px;
+  background: none;
+  color: lightcoral;
+  cursor: pointer;
+  border: .5px solid #999;
+  margin-left: 5px;
+}
