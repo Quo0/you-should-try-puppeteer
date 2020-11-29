@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --clr-code__background: #282c34;
+        }
+        section.slide {
+            padding: 40px 30px 30px 30px;
+        }
+        .slide ul > li::before {
+            content: "";
+        }
+
+        /* Colors */
+        .class_Puppeteer {
+            color: #0b5394 !important;
+        }
+        .class_Browser {
+            color: #705f96 !important;
+        }
+        .class_BrowserContext {
+            color: #ab6584 !important;
+        }
+        .class_Page {
+            color: #158880 !important;
+        }
+        .class_Frame {
+            color: #276cbc !important;
+        }
+        .class_ExecutionContext {
+            color: #f7c087 !important;
+        }
+        .class_Worker {
+            color: #bb25079e !important;
+        }
+        .class_ElementHandle {
+            color: #d5aa4a !important;
+        }
+        .class_HTMLElement {
+            color: #60ad4f !important;
+        }
+        .code__global {
+            color: #d3267e !important;
+        }
+
+        /* image */
+        ul.leveled-list {
+            position: relative;
+            display: flex;
+        }
+        li.leveled-list__item {
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: flex-start;
+            border: 1px solid #FFF;
+            box-sizing: border-box;
+        }
+        .z1 { z-index: 1; } .z2 { z-index: 2; } .z3 { z-index: 3; }
+        .z4 { z-index: 4; } .z5 { z-index: 5; } .z6 { z-index: 6; }
+        .z7 { z-index: 7; } .z8 { z-index: 8; } .z9 { z-index: 9; }
+        .z10 { z-index: 10; } .z11 { z-index: 1; } .z12 { z-index: 12; }
+        .flex {
+            display: flex;
+        }
+
+        .class-overview {
+            line-height: 1.5em;
+
+        }
+        .class-overview__header {
+            margin: 0 0 10px 0;
+            color: #158880;
+        }
+        /* .class-overview__method {
+
+        } */
+        p.method__header {
+            margin: 0;
+            color: #276cbc;
+            font-weight: 600;
+            font-family: monospace;
+        }
+        p.method__info {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.2em;
+            padding-left: 25px;
+        }
+        img.method__img {
+            margin: 3px 0 0 25px;
+        }
+
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Доклад про Puppeteer</h1>
+    </header>
+
+    <section class="slide slide1" id="cover">
+        <h1 class="slide1__title">YOU SHOULD TRY</h1>
+        <img class="slide1__img" src="pictures/puppeteer.png">
+
+        <style>
+            .slide1 {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 50px;
+                --ribbon-size: 0px;
+            }
+            .slide1__title {
+                text-align: center;
+                text-transform: uppercase;
+                padding-left: 20px;
+                margin: 0;
+                font-size: 60px;
+            }
+            .slide1__img {
+                display: inline-block;
+                margin: 0 auto;
+                min-width: 200px;
+                height: 75%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide2">
+
+        <ul class="leveled-list sl2-leveled-list">
+            <li class="leveled-list__item z1">
+                <div class="slide2__batman-face"></div>
+                <div class="s2-content">
+                    <h1 class="s2-content__title">Всем привет!</h1>
+                    <p>Меня зовут Блохин Андрей</p>
+                    <p>Работаю в компании <img class="s2-content__img" src="./pictures/epam-logo.png"></p>
+                    <p>Писал E2E для контакт центра и интернет магазина</p>
+                    <p>Что-то парсил для своих пэт проджектов</p>
+                </div>
+            </li>
+            <li class="leveled-list__item z2 next">
+                <div class="s2-question">
+                    <h1 class="s2-content__title">Should you even try Puppeteer ?</h1>
+                </div>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            ul.sl2-leveled-list {
+                height: 450px;
+                width: 100%;
+                margin-top: -10px;
+            }
+
+            .slide2 {
+                display: flex;
+                padding-top: 100px !important;
+                justify-content: center;
+                align-items: center;
+            }
+            .slide2__batman-face {
+                min-width: 320px;
+                height: 320px;
+                border-radius: 50%;
+                box-shadow: 0 0 0 2px #FFF, 0 0 0 4px #979a9e;
+                background-position: top;
+                background-size: cover;
+                background-image: url('./pictures/batman-face.jpg');
+                margin: 30px 30px 0 5px;
+            }
+
+            .s2-content__title{
+                margin: 0;
+                font-size: 60px;
+            }
+            .s2-content__img{
+                width: auto;
+                height: 32px;
+                margin: -10px 0;
+            }
+            .slide2 p {
+                margin-bottom: 13px;
+            }
+            .s2-question {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+        </style>
+    </section>
+
+    <section class="slide slide3">
+        <h2>Что такое Puppeteer ?</h2>
+        <p class="wtf-is-puppeteer">Библиотека, которая предоставляет удобное API для работы с <span class="slide3__abriviation">Chrome Devtools Protocol</span></p>
+        <div class="workflow-chain">
+            <img class="slide3__img workflow-chain__element_node" src="./pictures/workflow-chain/node.png" alt="">
+            <div class="workflow-chain__arrow"></div>
+            <img class="slide3__img workflow-chain__element_puppeteer" src="./pictures/workflow-chain/puppeteer.png" alt="">
+            <div class="workflow-chain__arrow"></div>
+            <div class="workflow-chain__element workflow-chain__element_cdp">
+                CDP
+            </div>
+            <div class="workflow-chain__arrow"></div>
+            <img class="slide3__img workflow-chain__element_chromium" src="./pictures/workflow-chain/chromium.png" alt="">
+        </div>
+        <style>
+            .slide3__img {
+                width: 170px;
+            }
+            .wtf-is-puppeteer {
+                padding-top: 30px;
+            }
+            .workflow-chain {
+                margin-top: 70px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .workflow-chain__element_node {
+                width: 190px;
+            }
+            .workflow-chain__element_puppeteer {
+                width: 140px;
+            }
+            .workflow-chain__element_cdp {
+                font-size: 60px;
+                font-weight: bold;
+                color: steelblue;
+            }
+            .workflow-chain__arrow {
+                width: 40px;
+                height: 3px;
+                background-color: #111;
+            }
+            .slide3__abriviation {
+                color: steelblue;
+                font-weight: bold;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide4">
+        <h2 class="slide4__title">СDP может все!</h2>
+        <div class="s4domain-images">
+            <div class="s4domain-image s4domain-image_1"></div>
+            <div class="s4domain-image s4domain-image_2"></div>
+            <div class="s4domain-image s4domain-image_3"></div>
+            <div>
+                <p><span class="class_Page" style="font-weight: bold;">Puppeteer</span> может не все, но многое!</p>
+                <p>Зато он <span class="class_Page" style="font-weight: bold;">позволяет абстрагироваться</span><br> и писать более семантичный код</p>
+                <p>А если чего-то действительно нехватает, всегда есть возможность подключитсься к CDP сессии и запустить это вручную</p>
+            </div>
+        </div>
+        <style>
+            .slide4 {
+                --slide-side: 25px;
+            }
+            .slide4__title {
+                padding: 0 0 0 15px;
+            }
+            .slide4 p {
+                font-size: 22px;
+            }
+
+            .s4domain-images {
+                display: flex;
+            }
+            .s4domain-image {
+                min-width: 190px;
+                height: 60vh;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin: 8px 0 0 0;
+            }
+            .s4domain-image_1 {
+                background-image: url('./pictures/domains/1.png');
+            }
+            .s4domain-image_2 {
+                background-image: url('./pictures/domains/2.png');
+            }
+            .s4domain-image_3 {
+                background-image: url('./pictures/domains/3.png');
+            }
+        </style>
+    </section>
+
+    <section class="slide slide5">
+        <img class="slide5__img" src="pictures/overview/full.png">
+
+        <style>
+            .slide5__img {
+                display: block;
+                margin: -50px auto 0;
+                height: 130%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide6">
+        <h2 class="slide6__title">class Puppeteer</h2>
+        <div class="slide6__content">
+            <img class="slide6__img" src="pictures/overview/1.png">
+            <div class="class-overview">
+                <h3 class="class-overview__header">Ответствен за установку соединения с браузером</h3>
+                <div class="class-overview__method method">
+                    <p class="method__header">.launch()</p>
+                    <p class="method__info">- запускаем и конектимся к браузеру скаченному в node_modules</p>
+                    <p class="method__info">- либо с флагом executablePath указываем путь до другого браузера</p>
+                    <img class="method__img" src="pictures/overview/1.1.png">
+                </div>
+                <div class="class-overview__method">
+                    <p class="method__header">.connect()</p>
+                    <p class="method__info">- конектимся к уже запущеному браузеру указав ссылку на WebSocket</p>
+                    <img class="method__img" src="pictures/overview/1.2.png">
+                </div>
+                <br>
+                <p>Оба метода возвращают экземпляр <span class="class_Browser">Браузера</span></p>
+            </div>
+        </div>
+
+        <style>
+            .slide6 .class-overview__header {
+                margin: -5px 0 35px 0;
+            }
+            .slide6 .method__img {
+                width: 615px;
+            }
+
+            .slide6__content{
+                display: flex;
+            }
+            img.slide6__img {
+                margin: 0 20px 0 0;
+                height: 250px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide7">
+        <h2 class="slide7__title">class Browser, class BrowserContext</h2>
+        <div class="slide7__content">
+            <div class="sl7content__header">
+                <img class="slide7__img" src="pictures/overview/2.png">
+            </div>
+            <div class="sl7content__main">
+                <div class="class-overview class-overview_Browser">
+                    <h4>Browser</h4>
+                    <div class="class-overview__method method">
+                        <p class="method__header">.createIncognitoBrowserContext()</p>
+                        <p class="method__info">- создаем контекст с <span style="font-weight: 600;">изолированной</span> сессией</p>
+                        <img class="method__img" src="pictures/overview/2.1.1.png">
+                    </div>
+                    <div class="class-overview__method">
+                        <p class="method__header">.browserContexts()</p>
+                        <p class="method__info">- получаем все контексты</p>
+                    </div>
+                    <div class="class-overview__method">
+                        <p class="method__header">.pages()</p>
+                        <p class="method__info">- получаем все страницы <span style="font-weight: 600;">всех</span> контекстов</p>
+                    </div>
+                </div>
+                <div class="class-overview class-overview_BrowserContext">
+                    <h4>BrowserContext</h4>
+                    <div class="class-overview__method method">
+                        <p class="method__header">.newPage()</p>
+                        <p class="method__info">- создаем страницу в <span style="font-weight: 600;">текущем</span> контексте</p>
+                        <img class="method__img" src="pictures/overview/2.2.1.png">
+                    </div>
+                    <div style="flex-grow: 1;"></div>
+                    <div class="class-overview__method method">
+                        <p class="method__header">.pages()</p>
+                        <p class="method__info">- получаем все страницы <span style="font-weight: 600;">текущего</span> контекста</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .slide7 .method__img {
+                width: 470px;
+            }
+            h2.slide7__title {
+                margin: 6px 0 35px 0;
+            }
+            .sl7content__header {
+                display: flex;
+                margin: 0 0 20px;
+            }
+            img.slide7__img {
+                width: 460px;
+                margin: 0 auto;
+            }
+            .sl7content__main h4 {
+                text-align: center;
+                margin: 0 0 20px 0;
+                line-height: 1.2em;
+            }
+            .sl7content__main {
+                display: flex;
+            }
+            .slide7 .class-overview_Browser {
+                margin: 0 30px 0 0;
+            }
+            .slide7 .class-overview_BrowserContext {
+                display: flex;
+                flex-direction: column;
+            }
+            .slide7 .class-overview_BrowserContext img{
+                width: 385px;
+            }
+
+            .slide7 .class-overview__method{
+                font-size: 20px;
+                line-height: 1.2em;
+                margin-bottom: 15px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide8">
+        <div class="slide8__header">
+            <h2 class="slide8__title">class Page<br/> class Frame<br/> class ExecutionContext</h2>
+            <img class="slide8__img" src="pictures/overview/3.png">
+        </div>
+        <div class="slide8__content">
+            <div class="class-overview class-overview_page">
+                <div class="class-overview__method method">
+                    <p class="method__header class_Page">Page</p>
+                    <p class="method__info">- служит агригатором методов для работы с конкретной табой / экстэншеном</p>
+                    <p class="method__info">- имеет как минимум один frame - mainFrame</p>
+                    <p class="method__info">- имеет доступ к <span class="class_Worker">Worker</span>'ам</p>
+                </div>
+            </div>
+            <div class="class-overview class-overview_frame">
+                <div class="class-overview__method method">
+                    <p class="method__header class_Frame">Frame</p>
+                    <p class="method__info">- содержит основные методы для работы</p>
+                    <p class="method__info">- имеет как минимум один контекст исполнения</p>
+                </div>
+            </div>
+            <div class="class-overview class-overview_execution-context">
+                <div class="class-overview__method method">
+                    <p class="method__header class_ExecutionContext">ExecutionContext</p>
+                    <p class="method__info">- служит для работы с доменом Runtime</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .slide8 {
+                --slide-side: 50px;
+                padding-top: 50px;
+            }
+            .slide8 p {
+                font-size: 22px;
+            }
+            .slide8__header {
+                display: flex;
+                justify-content: space-evenly
+            }
+            .slide8__content {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+            .slide8__content .class_Worker {
+                font-weight: bold;
+            }
+            h2.slide8__title {
+                font-size: 45px;
+                line-height: 1.2em;
+            }
+            img.slide8__img {
+                height: 270px;
+            }
+            .class-overview_page {
+                margin-bottom: 20px;
+            }
+            .class-overview_execution-context {
+                padding: 0 5px 0 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide9">
+        <img class="slide9__img" src="pictures/overview/4.png">
+        <div class="slide9__content">
+            <h2>Итого:</h2>
+            <p>
+                Мы можем подключиться к любому <span class="class_Browser">браузеру</span>,
+                <br/>который поддерживает CDP</p>
+            <p>
+                Создать в нем сколько угодно полностью изолированных
+                <span class="class_BrowserContext">контекстов</span>
+            </p>
+            <p>
+                И в каждом из контекстов создавать <span class="class_Page">страницы</span> у которых будет
+                свой <span class="class_ExecutionContext">контекст исполнения</span>
+                в каждом из <span class="class_Frame">фреймов</span>
+            </p>
+        </div>
+
+        <style>
+            .slide9 {
+                --slide-side: 10px;
+                display: flex;
+            }
+            .slide9 p {
+                font-size: 24px;
+                line-height: 1.3em;
+            }
+            .slide9__img {
+                display: block;
+                margin: -20px 30px 0 -30px;
+                height: 540px;
+            }
+            .slide9__content {
+                padding: 70px 0 0 10px;
+            }
+            .slide9__content h4{
+                margin: 0 0 10px 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide10">
+        <h2 class="slide10__title">class ElementHandle</h2>
+        <div class="slide10__content">
+            <div class="sl10content__header">
+                <p>Предоставляет нам удобное API для работы с DOM-элемента в контексте Node.js.</p>
+            </div>
+            <img class="slide10__img" src="pictures/overview/5.png">
+            <div class="class-overview class-overview_ElementHandle">
+                <div class="class-overview__method method">
+                    <p class="method__header">.click()</p>
+                    <p class="method__header">.tap()</p>
+                    <p class="method__header">.hover()</p>
+                    <p class="method__header">.focus()</p>
+                </div>
+                <div class="class-overview__method method">
+                    <p class="method__header">.type()</p>
+                    <p class="method__header">.select()</p>
+                    <p class="method__header">.uploadFile()</p>
+                    <p class="method__header">.dispose()</p>
+                </div>
+                <div class="class-overview__method method">
+                    <p class="method__header">.$()</p>
+                    <p class="method__header">.$$()</p>
+                    <p class="method__header">.$eval()</p>
+                    <p class="method__header">.evaluate()</p>
+                </div>
+                <div class="class-overview__method method">
+                    <p class="method__header">.isIntersectingViewport()</p>
+                    <p class="method__header">.getProperty()</p>
+                    <p class="method__header">.boxModel()</p>
+                    <p class="method__header">.boundingBox()</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .slide10__img {
+                width: 100%;
+                margin: 15px 0 10px;
+            }
+            .sl10content__header p.method__header {
+                font-size: 22px;
+            }
+            .sl10content__header p {
+                line-height: 1.4em;
+                margin: 0;
+            }
+            .class-overview_ElementHandle {
+                display: flex;
+                justify-content: space-between;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide11">
+        <h2 class="slide11__title">Hello world</h2>
+        <ul class="leveled-list sl11-leveled-list">
+            <li class="leveled-list__item z1">
+                <ul class="slide11__ul">
+                    <li><img src="./pictures/code-pen-one-context/1.png" class="slide11__img"/></li>
+                    <li class="next"><img src="./pictures/code-pen-one-context/2.png" class="slide11__img"/></li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z2 next">
+                <ul class="slide11__ul">
+                    <li><img src="./pictures/code-pen-one-context/3.png" class="slide11__img"/></li> -->
+                    <li class="next"><img src="./pictures/code-pen-one-context/4.png" class="slide11__img"/></li>
+                    <li class="next"><img src="./pictures/code-pen-one-context/5.png" class="slide11__img"/></li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img src="./pictures/code-pen-one-context/6.png" class="slide11__img"/>
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img src="./pictures/code-pen-one-context/7.png" class="slide11__img"/>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            section.slide11 {
+                padding: 40px 0 30px 0;
+            }
+            h2.slide11__title{
+                padding-left: 30px;
+            }
+            ul.sl11-leveled-list {
+                height: 500px;
+                margin-top: -10px;
+            }
+            .slide11 .z1 {
+                padding-top: 20px;
+            }
+            .slide11 .z2 {
+                padding-top: 10px;
+            }
+            .slide11 .z4 {
+                padding-top: 40px;
+            }
+            ul.slide11__ul {
+                font-size: 0px;
+                background-color: var(--clr-code__background);
+            }
+            .slide11__img {
+                width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide12">
+        <h2 class="slide12__title">* .evaluate( ) - портал между Node.js и браузером</h2>
+        <ul class="slide12__ul leveled-list">
+            <li class="leveled-list__item z1"><img src="./pictures/evaluate-fn/1.png" class="slide12__img"/></li>
+            <li class="leveled-list__item z2 next">
+                <p class="slide12__portal">
+                    <span class="class_ElementHandle">ElementHandle</span>
+                     <---> evaluate() <--->
+                    <span class="class_HTMLElement">HTMLElement</span>
+                </p>
+                <img src="./pictures/evaluate-fn/2.png" class="slide12__img"/>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            h2.slide12__title{
+                font-size: 45px;
+            }
+            .slide12__ul.leveled-list {
+                height: 450px;
+            }
+            .slide12__img {
+                width: 100%;
+            }
+            .slide12__portal {
+                font-family: monospace;
+                font-size: 35px;
+                margin-bottom: 10px !important;
+                width: 100%;
+            }
+            .slide12 .z1 { padding-top: 70px; }
+            .slide12 .z2 { padding-top: 30px; }
+        </style>
+    </section>
+
+    <section class="slide slide13">
+        <h2>Параллельное исполнение</h2>
+        <img src="./pictures/code-pen-multiple-contexts/1.png" class="slide13__img"/>
+        <style>
+            .slide13__img {
+                margin-top: 30px;
+                width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide14">
+        <h2 class="slide14__title" style="margin: 0 0 45px 0">Для чего вообще используют Puppeteer?</h2>
+        <div class="slide14__content">
+            <img src="./pictures/puppeteer.png" class="slide14__img slide14__img_puppeteer"/>
+            <ul class="slide14__ul">
+                <li class="slide14__content_tests next">
+                    <h4>Tестирование</h4>
+                    <div class="puppeteer-for-tests-img">
+                        <img src="./pictures/usecases/tests/jest-logo.png" class="slide14__img puppeteer-for-tests-img_jest"/>
+                        <img src="./pictures/usecases/tests/icon.png" class="slide14__img puppeteer-for-tests-img_icon-1"/>
+                        <img src="./pictures/usecases/tests/icon.png" class="slide14__img puppeteer-for-tests-img_icon-2"/>
+                    </div>
+                </li>
+                <li class="slide14__content_web-scrapping next">
+                    <h4 style="margin: -10px;">Web Scraping</h4>
+                    <img src="./pictures/gop.png" class="slide14__img slide14__img_gopnik"/>
+                </li>
+                <li class="slide14__content_ssr next">
+                    <h4>Пререндеринг SPA</h4>
+                    <div class="puppeteer-for-ssr-img">
+                        <img class="slide14__img puppeteer-for-ssr-img__frameworks" src="./pictures/usecases/ssr/3.jpg" alt="">
+                        <div class="puppeteer-for-ssr-img__transform">
+                            <img class="slide14__img puppeteer-for-ssr-img__transform_js" src="./pictures/usecases/ssr/js.png" alt="">
+                            <p>--></p>
+                            <img class="slide14__img puppeteer-for-ssr-img__transform_html" src="./pictures/usecases/ssr/html.png" alt="">
+                        </div>
+                    </div>
+                </li>
+                <li class="next"></li>
+            </ul>
+        <div/>
+        <style>
+            .slide14 {
+                --ribbon-size: 0px;
+                padding-top: 20px;
+            }
+            .slide14__content {
+                position: relative;
+                text-align: center;
+            }
+            .slide14__content_tests {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 250px;
+            }
+            .slide14__content_web-scrapping {
+                position: absolute;
+                top: 125%;
+                left: 48.5%;
+                transform: translateX(-50%);
+            }
+            .slide14__content_ssr {
+                position: absolute;
+                top: 0;
+                right: -30px;
+                width: 350px;
+            }
+            .slide14::after {
+                font-size: 0px;
+            }
+            h2.slide14__title {
+                text-align: center;
+            }
+            .slide14__img {
+                display: block;
+                width: 235px;
+            }
+            .slide14__img_puppeteer {
+                width: 80px;
+                margin: 0 auto;
+                transform: translateX(-10px);
+            }
+            .slide14__img_jest {
+                margin: 5px;
+            }
+            .slide14__img_gopnik {
+                width: 430px;
+                margin-left: -40px;
+            }
+            .slide14 h4 {
+                margin: 0 0 10px 0;
+                color: #0b5394;
+                font-size: 30px;
+            }
+
+            .puppeteer-for-tests-img {
+                position: relative;
+            }
+            .puppeteer-for-tests-img_jest {
+                position: absolute;
+                left: 0;
+                z-index: 0;
+                width: 150px;
+            }
+            .puppeteer-for-tests-img_icon-1 {
+                position: absolute;
+                left: 140px;
+                top: 3px;
+                z-index: 1;
+                width: 90px;
+                transform: rotate(20deg);
+            }
+            .puppeteer-for-tests-img_icon-2 {
+                position: absolute;
+                z-index: 1;
+                top: 110px;
+                z-index: 2;
+                left: 115px;
+                transform: rotate(-22deg);
+                width: 69px;
+            }
+
+            .puppeteer-for-ssr-img {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .puppeteer-for-ssr-img__transform {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                font-weight: bold;
+                font-family: monospace;
+                letter-spacing: -12px;
+                flex-basis: 100%;
+                padding-left: 50px;
+            }
+            .puppeteer-for-ssr-img__frameworks { width: 120px; margin-top: -20px; }
+            .puppeteer-for-ssr-img__transform > p { margin: 0 10px }
+            .puppeteer-for-ssr-img__transform_js { width: 75px;}
+            .puppeteer-for-ssr-img__transform_html { width: 120px;}
+        </style>
+    </section>
+
+    <section class="slide slide15">
+        <h2 class="slide15__title">Тестирование?<br/>А точно-ли Puppeteer вам подходит?</h2>
+        <div class="slide15__content">
+            <div class="sl15borwser_can-work-with">
+                <h4 class="slide15__header">Можем тестировать</h4>
+                <ul >
+                    <li>
+                        Firefox
+                        <img class="slide15__img" src="./pictures/browsers/firefox.png"/>
+                    </li>
+                    <li>
+                        Edge 79+
+                        <img class="slide15__img" src="./pictures/browsers/edge.new.png"/>
+                    </li>
+                    <li>
+                        Electron
+                        <img class="slide15__img" src="./pictures/browsers/electron.png"/>
+                    </li>
+                    <li>
+                        Chrome / Chromium
+                        <div>
+                            <img class="slide15__img" src="./pictures/browsers/chrome.png" style="margin-left: 20px;"/>
+                            <img class="slide15__img" src="./pictures/browsers/chromium.png"/>
+                        </div>
+                    </li>
+                    <li class="slide15__img_extensions">
+                        Chrome extensions
+                        <img class="slide15__img" src="./pictures/browsers/extensions.png"/>
+                    </li>
+                </ul>
+            </div>
+            <div class="sl15browser_cant-work-with">
+                <h4 class="slide15__header slide15__header_cant-work-with">Не можем</h4>
+                <ul >
+                    <li>
+                        IE
+                        <img class="slide15__img" src="./pictures/browsers/ie.png"/>
+                    </li>
+                    <li>
+                        Edge
+                        <img class="slide15__img" src="./pictures/browsers/edge.png"/>
+                    </li>
+                    <li>
+                        Safari
+                        <img style="opacity: 0.2;" class="slide15__img" src="./pictures/browsers/safari.png"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <style>
+            .slide15 {
+                padding-top: 30px;
+            }
+            .slide15__header {
+                margin: 0 0 10px 0;
+                text-align: center;
+            }
+            .slide15__header_cant-work-with {
+                text-align: left;
+                padding: 0 0 0 40px;
+            }
+            .slide15__img {
+                width: 50px;
+            }
+            .slide15 li {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 0 0 5px 0;
+            }
+            .slide15 li.slide15__img_extensions {
+                margin: -10px 0 0 0;
+            }
+            .slide15__content {
+                display: flex;
+                padding: 20px 0 0 60px;
+            }
+            .sl15browser_can-work-with {
+                width: 400px;
+                margin-left: 50px;
+            }
+            .sl15browser_cant-work-with {
+                width: 200px;
+                margin-left: 200px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide16">
+        <h2 class="slide16__title">Нам нужен тест раннер!</h2>
+        <div class="slide16__content">
+            <ul class="sl16content__ul_outer">
+                <li>
+                <!-- <li class="next"> -->
+                    <h4 class="sl16content__header">Скачиваем пакеты</h4>
+                    <ul>
+                        <li>npm i <b>jest</b></li>
+                        <li>
+                            npm i <b>jest-puppeteer</b><br/>
+                            jest-environment-puppeteer
+                            <!-- <br>expect-puppeteer -->
+                        </li>
+                        <li>npm i <b>jest-html-reporters</b></li>
+                    </ul>
+                </li>
+                <li class="sl16benefits">
+                    <h4 class="sl16content__header">Получаем плюшки</h4>
+                    <p><span class="code__global">global.</span>browser</p>
+                    <p><span class="code__global">global.</span>context</p>
+                    <p><span class="code__global">global.</span>page</p>
+                    <p><span class="code__global">global.</span>jestPuppeteer.resetBrowser()</p>
+                    <p><span class="code__global">global.</span>jestPuppeteer.resetPage()</p>
+                    <p><span class="code__global">global.</span>jestPuppeteer.debug()</p>
+                    <div>
+                        <p>setupBrowser()</p>
+                        <p>teardownBrowser()</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <style>
+            .slide16 {
+                padding-top: 30px;
+            }
+            .slide16 p {
+                margin: 0;
+            }
+            ul.sl16content__ul_outer {
+                display: flex;
+                justify-content: space-between;
+            }
+            ul.sl16content__ul_outer > li::before {
+                content: "";
+            }
+            .sl16content__header {
+                text-align: center;
+                margin: 15px 0;
+            }
+            .sl16benefits p {
+                line-height: 1.5em;
+            }
+            .sl16benefits p:last-of-type {
+                margin: 0 0 20px 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide17">
+        <h2 class="slide17__title">Есть два конфига</h2>
+        <ul class="sl17-leveled-list leveled-list">
+            <li class="slide17__chairs leveled-list__item">
+                <div class="slide17__chair" style="margin-left: -60px;">
+                    <p class="jest-config">jest.config.js</p>
+                    <img class="slide17__img" src="./pictures/testing/chair1_m.png" />
+                </div>
+                <div class="slide17__chair">
+                    <p>jest-puppeteer.config.js</p>
+                    <img class="slide17__img" src="./pictures/testing/chair1.png" />
+                </div>
+            </li>
+            <li class="slide17__chairs leveled-list__item next z2">
+                <p style="margin: 0;">jest-puppeteer.config.js</p>
+                <div class="slide17__final-result">
+                    <img class="slide17__img" src="./pictures/jest/jest-puppeteer.config/5.1.png" />
+                    <img class="slide17__img" src="./pictures/jest/jest-puppeteer.config/5.2.png" />
+                </div>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .sl17-leveled-list {
+                height: 100vh;
+            }
+            .slide17__chairs {
+                display: flex;
+                justify-content: space-around;
+            }
+            .slide17__chair {
+                position: relative;
+            }
+            .slide17__chair img {
+                display: block;
+                margin: 0 auto;
+                transform: rotateX(30deg);
+            }
+            .slide17__chair p.jest-config {
+                color:#5b7ee7;
+                left: -90px;
+            }
+            .slide17__chair p {
+                width: 500px;
+                position: absolute;
+                z-index: 1;
+                top: 160px;
+                left: -80px;
+                text-align: center;
+                font-size: 50px;
+                color: #da4c8b;
+                text-shadow: 1px 2px 0px #fff, 2px 3px 3px #111;
+            }
+            .slide17__img {
+                display: block;
+                width: 320px;
+            }
+
+            .slide17__final-result {
+                display: flex;
+                justify-content: space-around;
+            }
+            .slide17__final-result img {
+                width: 49%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide19">
+        <h2 class="slide19__title">Hello world .spec</h2>
+        <ul class="leveled-list sl19-leveled-list">
+            <li class="leveled-list__item z1">
+                <img class="slide19__img" src="./pictures/jest/basic-test/1.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <ul>
+                    <li>
+                        <img class="slide19__img" src="./pictures/jest/basic-test/2.1.png" />
+                    </li>
+                    <li class="next">
+                        <img class="slide19__img" src="./pictures/jest/basic-test/2.2.png" />
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <style>
+            .slide19 {
+                padding: 0;
+                --slide-side: 25px;
+            }
+            .slide19::after {
+                z-index: 100;
+            }
+            .slide19 ul li::before {
+                content: '';
+            }
+            .slide19 ul li ul {
+                margin: 0;
+                background: var(--clr-code__background);
+                height: 100%;
+            }
+            .slide19__img {
+                display: block;
+                width: 100%;
+            }
+            .sl19-leveled-list {
+                height: 400px;
+            }
+            .sl19-leveled-list .z1{
+                padding: 60px 0 0 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide20">
+        <h2>Нужно всегда помнить о рендеринге</h2>
+        <ul class="sl20__rendering">
+            <li>
+                <p>Элемент еще не появился?</p>
+                <img class="slide20__img" src="./pictures/jest/advices/2.1.png">
+                <img class="slide20__img" src="./pictures/jest/advices/2.2.png">
+            </li>
+            <li class="next">
+                <p>Элемент должен поменять значение?</p>
+                <img class="slide20__img" src="./pictures/jest/advices/3.1.png">
+                <img class="slide20__img" src="./pictures/jest/advices/3.2.png">
+            </li>
+        </ul c>
+        <style>
+            .slide20 {
+                padding: 30px;
+            }
+            .slide20 ul > li::before {
+                content: '';
+            }
+            .slide20 p {
+                font-size: 25px;
+                line-height: 2em;
+                margin: 0;
+            }
+            .slide20__img {
+                width: 99%;
+                padding-left: 2px;
+            }
+            .sl20-leveled-list {
+                height: 400px;
+            }
+            .sl20_small-padding {
+                box-sizing: border-box;
+                padding-left: 15px;
+            }
+            .slide20 ul li .sl20__rendering {
+                line-height: 1.5em;
+                margin-left: 15px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide21">
+        <h2 class="slide21__title">Не хотим ждать</h2>
+        <img class="slide21__img" src="./pictures/jest/advices/wrapper/cat1.jpg" />
+        <style>
+            .slide21 {
+                --ribbon-size: 0px;
+            }
+            .slide21__img{
+                position: fixed;
+                left: 0;
+                top: 140px;
+                width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide22">
+        <h2 class="slide22__title">Не хотим ждать</h2>
+        <ul class="leveled-list sl22-leveled-list">
+            <li class="leveled-list__item z1">
+                <img class="slide22__img" src="./pictures/jest/advices/wrapper/skip-wrapper.test.png" />
+            </li>
+            <li class="leveled-list__item z5 next">
+                <img class="slide22__img" src="./pictures/jest/advices/wrapper/skip-wrapper3.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide22 {
+                padding: 0;
+                --slide-side: 25px;
+            }
+            .slide22::after {
+                z-index: 100;
+            }
+            .slide22 ul li::before {
+                content: '';
+            }
+            .slide22 ul li ul {
+                margin: 0;
+                background: var(--clr-code__background);
+                height: 100%;
+            }
+            .slide22__img {
+                display: block;
+                width: 100%;
+            }
+            .slide22__img_full {
+                position: fixed;
+                left: 0;
+                top: 140px;
+                width: 100%;
+            }
+            .sl22-leveled-list {
+                height: 460px;
+            }
+            .slide22 .z2 { padding-top: 60px; }
+            .slide22 .z6 { padding-top: 110px; }
+        </style>
+    </section>
+
+    <section class="slide slide23">
+        <h2 class="slide23__title">Врапперы это круто!</h2>
+        <ul class="leveled-list sl23-leveled-list">
+            <li class="leveled-list__item z1">
+                <img class="slide23__img" src="./pictures/jest/advices/wrapper/advanced-wrapper.png" />
+            </li>
+        <style>
+            .slide23__img{
+                width: 100%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide24">
+        <h2 class="slide24__title">Electron + Puppeteer</h2>
+        <ul class="leveled-list sl24-leveled-list">
+            <li class="leveled-list__item z0">
+                <ul>
+                    <li>
+                        <h4>Настраиваем приложение</h4>
+                        <img class="slide24__img" src="./pictures/electron/app-command-line.png" />
+                    </li>
+                    <li class="next">
+                        <h4>Коннектимся по browserUrl или browserWSEndpoint</h4>
+                        <img class="slide24__img" src="./pictures/electron/connect-to-ellectron.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z1 next">
+                <img class="slide24__img" src="./pictures/electron/without-jest/1.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide24 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide24 ul li::before {
+                content: '';
+            }
+            h2.slide24__title {
+                margin-bottom: 0px;
+            }
+            .slide24 ul li ul {
+                margin: 0;
+                height: 100%;
+            }
+            .slide24 h4 {
+                margin: 10px 0;
+            }
+            .slide24__img {
+                display: block;
+                width: 100%;
+            }
+            .sl24-leveled-list {
+                margin: -25px 0 0 0;
+                height: 500px;
+            }
+            .sl24-leveled-list .z1 ul {
+                background-color: var(--clr-code__background);
+                height: auto;
+                width: 100%;
+            }
+            .sl24-leveled-list .z0 {
+                padding: 40px 0 0 0;
+            }
+            .sl24-leveled-list .z1 {
+                padding: 40px 0 0 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide25">
+        <h2 class="slide25__title">Electron + Jest + Puppeteer</h2>
+        <ul class="leveled-list sl25-leveled-list">
+            <li class="leveled-list__item z1">
+                <p>Настраиваем <span style="font-family: monospace;">beforeAll(), afterAll()</span> хуки</p>
+                <img class="slide25__img" src="./pictures/electron/with-jest/hooks-setup1.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <ul>
+                    <li>
+                        <img class="slide25__img" src="./pictures/electron/with-jest/hooks-setup3.png" />
+                    </li>
+                    <li class="next">
+                        <img class="slide25__img" src="./pictures/electron/with-jest/hooks-setup4.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide25__img" src="./pictures/electron/with-jest/hooks-setup5.png" />
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img class="slide25__img" src="./pictures/electron/with-jest/test-with-hooks.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide25 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            h2.slide25__title {
+                margin-bottom: 20px;
+            }
+            .slide25 ul li::before {
+                content: '';
+            }
+            .slide25 ul li ul {
+                margin: 0;
+                height: 100%;
+            }
+            .slide25 h4 {
+                margin: 10px 0;
+            }
+            .slide25__img {
+                display: block;
+                width: 100%;
+            }
+            .sl25-leveled-list {
+                margin: -25px 0 0 0;
+                height: 500px;
+            }
+            .sl25-leveled-list .z1 ul {
+                background-color: var(--clr-code__background);
+                height: auto;
+                width: 100%;
+            }
+            .sl25-leveled-list .z2 ul {
+                background-color: var(--clr-code__background);
+                height: auto;
+                width: 100%;
+            }
+            .sl25-leveled-list .z3 img {
+                margin: 140px 0 0 0;
+            }
+            .sl25-leveled-list .z4 img {
+                margin: 110px 0 0 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide26">
+        <h2 class="slide26__title">А еще можно тестить Chrome extensions !</h2>
+        <ul class="leveled-list sl26-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide26__img" src="./pictures/extensions/1.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <div>
+                <p>Ограничения:</p>
+                    <img class="slide26__img" src="./pictures/extensions/error1.png" />
+                    <img class="slide26__img" src="./pictures/extensions/error2.png" />
+                </div>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide26 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide26 ul li::before {
+                content: '';
+            }
+            h2.slide26__title {
+                margin-bottom: 10px;
+            }
+            .slide26__img {
+                display: block;
+                width: 100%;
+            }
+            .sl26-leveled-list {
+                margin: -26px 0 0 0;
+                height: 500px;
+            }
+            .sl26-leveled-list .z0 {
+                padding-top: 70px;
+            }
+            .sl26-leveled-list .z1{
+                padding-top: 50px;
+            }
+            .sl26-leveled-list .z1 img{
+                margin: 25px 0;
+            }
+        </style>
+    </section>
+    <section class="slide slide27">
+        <div class="slide27__img"></div>
+        <style>
+            .slide27 {
+                color: transparent;
+                padding: 0;
+                --slide-side: 0px;
+                --ribbon-size: 0px;
+            }
+            .slide27:after {
+                color: #111;
+            }
+            .slide27__img {
+                position: fixed;
+                top: 0;
+                left: 0;
+                /* display: block; */
+                width: 100%;
+                height: 100vh;
+                background-image: url('./pictures/1the-puppeteer-godfather.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide28">
+        <h2 class="slide28__title">Request interception</h2>
+        <ul class="leveled-list sl28-leveled-list">
+            <li class="leveled-list__item z0">
+                <p>
+                    Отменяем запрос при отправке
+                </p>
+                <img class="slide28__img" src="./pictures/request-interception/abort-images.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <p>
+                    Обрабатываем ответ - выкачиваем все картинки
+                </p>
+                <img class="slide28__img" src="./pictures/request-interception/download-images.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <p>
+                    Подменяем полученный ответ
+                </p>
+                <img class="slide28__img" src="./pictures/request-interception/change-the-response.png" />
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide28__img" src="./pictures/request-interception/request-api.png" />
+                <img class="slide28__img" src="./pictures/request-interception/response-api.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide28 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide28 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide28 ul li::before {
+                content: '';
+            }
+            h2.slide28__title {
+                margin: 0 0 10px 0;
+            }
+            .slide28__img {
+                display: block;
+                width: 100%;
+            }
+            .sl28-leveled-list {
+                margin: -29px 0 0 0;
+                height: 500px;
+            }
+            .sl28-leveled-list .z3 img {
+                width: 40%;
+            }
+            .sl28-leveled-list .z3 img:last-child {
+                padding: 12px 0 0 0;
+                margin: 0 0 0 50px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide29">
+        <h2 class="slide29__title">HTTP extra</h2>
+        <ul>
+            <li>
+                <img class="slide29__img" src="./pictures/extra-for-http/extra-http-headers.png" />
+            </li>
+            <li class="next">
+                <img class="slide29__img" src="./pictures/extra-for-http/auth.png" />
+            </li>
+        </ul>
+        <style>
+            .slide29 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide29 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide29 ul {
+                height: 440px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .slide29 ul li::before {
+                content: '';
+            }
+            .slide29__img {
+                display: block;
+                width: 85%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide30">
+        <h2 class="slide30__title">Cookies</h2>
+        <ul class="leveled-list sl30-leveled-list">
+            <li class="leveled-list__item">
+                <img class="slide30__img slide30__img_half" src="./pictures/cookies/set.png" />
+                <div class="slide30__img_half">
+                    <img class="slide30__img" src="./pictures/cookies/get.png" />
+                    <img class="slide30__img" src="./pictures/cookies/delete.png" />
+                </div>
+            </li>
+        </ul>
+        <style>
+            .slide30 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide30 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide30 ul {
+                height: 440px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .slide30 ul li::before {
+                content: '';
+            }
+            .slide30__img {
+                display: block;
+                width: 100%;
+            }
+            .slide30__img_half {
+                width: 50%;
+            }
+            .sl30-leveled-list .leveled-list__item {
+                align-items: flex-start;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide31">
+        <h2 class="slide31__title">Инлайним свои <span>&lt;script&gt;</span> тэги</h2>
+        <ul class="leveled-list sl31-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide31__img" src="./pictures/script-injection/add-script-api.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <ul>
+                    <li>
+                        <img class="slide31__img" src="./pictures/script-injection/csp-error.png" />
+                    </li>
+                    <li class="next">
+                        <img class="slide31__img" src="./pictures/script-injection/bypass-csp-api.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z2 next">
+                <ul>
+                    <li>
+                        <img class="slide31__img" src="./pictures/script-injection/csp-code.png" />
+                    </li>
+                    <li>
+                        <img class="slide31__img" src="./pictures/script-injection/csp-injected.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide31 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide31 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide31 ul li::before {
+                content: '';
+            }
+            .slide31 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            .slide31__img {
+                display: block;
+                width: 100%;
+            }
+            .sl31-leveled-list {
+                margin: -30px 0 0 0;
+                height: 500px;
+            }
+            .sl31-leveled-list .z2 {
+                width: 101%;
+                margin-left: -3px;
+            }
+        </style>
+    </section>
+
+
+
+    <section class="slide slide32">
+        <h2 class="slide32__title">Эмуляция</h2>
+        <ul class="leveled-list sl32-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide32__img" src="./pictures/emulation/api.png" />
+                <img class="slide32__img" src="./pictures/emulation/example.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <ul>
+                    <li>
+                        <img class="slide32__img" style="width: 95%;" src="./pictures/emulation/medea-feature1.png" />
+                    </li>
+                    <li>
+                        <img class="slide32__img" src="./pictures/emulation/medea-feature2.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z2 next">
+                <ul>
+                    <li style="margin-bottom: 20px;">
+                        <img class="slide32__img" src="./pictures/emulation/time-zone.png" />
+                    </li>
+                    <li>
+                        <img class="slide32__img" src="./pictures/emulation/geolocation.png" />
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z3 next">
+                <div style="
+                    margin: 40px 0 0 0;
+                    height: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                ">
+                    <img class="slide32__img" src="./pictures/emulation/set-user-agent.png">
+                    <img class="slide32__img" src="./pictures/emulation/headless-user.png">
+                </div>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide32 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide32 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide32 ul li::before {
+                content: '';
+            }
+            .slide32 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            .slide32__img {
+                display: block;
+                width: 100%;
+            }
+            .sl32-leveled-list {
+                margin: -30px 0 0 0;
+                height: 500px;
+            }
+            .sl32-leveled-list .z2 img {
+                width: 85%;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide33">
+        <div class="slide33__img_background"></div>
+        <img class="slide33__img_chromium" src="./pictures/ya-robot/ya-chromium.png" alt="">
+        <img class="slide33__img_codepen" src="./pictures/ya-robot/ya-codepen.png" alt="">
+        <img class="slide33__img_recaptcha" src="./pictures/ya-robot/ya-recaptcha.png" alt="">
+
+        <style>
+            .slide33 {
+                color: transparent;
+                padding: 0;
+                --slide-side: 0px;
+                --ribbon-size: 0px;
+            }
+            .slide33:after {
+                color: transparent;
+            }
+            section.slide33 {
+                padding: 0;
+            }
+            .slide33__img_background {
+                height: 100%;
+                background-image: url('./pictures/ya-robot/ya-background.jpg');
+                background-size: cover;
+                background-position: -50px;
+            }
+            .slide33__img_chromium {
+                width: 130px;
+                position: absolute;
+                top: 4px;
+                left: 118px;
+            }
+            .slide33__img_codepen {
+                width: 200px;
+                position: absolute;
+                bottom: 80px;
+                right: 60px;
+                filter: invert();
+            }
+            .slide33__img_recaptcha {
+                width: 100px;
+                position: absolute;
+                top: 80px;
+                left: 535px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide34">
+        <h2 class="slide34__title">Как нас определяют и как скрываться?</h2>
+        <ul class="leveled-list sl34-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide34__img" src="./pictures/avoid-detection/fingerprint-scanner.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/fingerprint-detection-tests.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/detection1.png" />
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/intoli1.png" />
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/webdriver.png" />
+            </li>
+            <li class="leveled-list__item z5 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/evaluate-on-new-document.png" />
+            </li>
+            <li class="leveled-list__item z6 next">
+                <img class="slide34__img" src="./pictures/avoid-detection/detection2.png" />
+            </li>
+            <li class="leveled-list__item z7 next">
+                <div class="slide34__hackers">
+                    <img class="slide34__img" src="./pictures/avoid-detection/hackers-film.png" />
+                    <img class="slide34__img slide34__img_hacker-news" src="./pictures/avoid-detection/hacker-news.png" />
+                </div>
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide34 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide34 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide34 ul li::before {
+                content: '';
+            }
+            .slide34 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            .slide34__img {
+                display: block;
+                width: 100%;
+            }
+            .sl34-leveled-list {
+                margin: -30px 0 0 0;
+                height: 500px;
+            }
+            .sl34-leveled-list .z1 img {
+                width: 98%;
+            }
+            .sl34-leveled-list .z0 {
+                padding-top: 30px;
+            }
+            .sl34-leveled-list .z2 {
+                padding-top: 40px;
+            }
+            .sl34-leveled-list .z3 {
+                padding-top: 40px;
+            }
+            .sl34-leveled-list .z4 {
+                padding-top: 80px;
+            }
+            .sl34-leveled-list .z6 {
+                padding-top: 30px;
+            }
+            .slide34__hackers {
+                position: relative;
+            }
+            .slide34__img_hacker-news {
+                position: absolute;
+                width: 80%;
+                left: 19px;
+                bottom: 17px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide35">
+        <h2 class="slide35__title">Puppeteer vs reCAPTCHA</h2>
+        <ul class="leveled-list sl35-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide35__img" src="./pictures/fight-captcha/background.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c2.png" />
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c3.png" />
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c4.png" />
+            </li>
+            <!-- <li class="leveled-list__item z5 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c5.png" />
+            </li> -->
+            <li class="leveled-list__item z7 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c7.png" />
+            </li>
+            <li class="leveled-list__item z8 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c8.png" />
+            </li>
+            <li class="leveled-list__item z9 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c9.png" />
+            </li>
+            <li class="leveled-list__item z10 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c10.png" />
+            </li>
+            <li class="leveled-list__item z11 next">
+                <img class="slide35__img" src="./pictures/fight-captcha/c11.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide35 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide35 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide35 ul li::before {
+                content: '';
+            }
+            .slide35 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            h2.slide35__title {
+                margin-bottom: 20px;
+            }
+            .slide35__img {
+                display: block;
+                width: 100%;
+            }
+            .sl35-leveled-list {
+                margin: -30px 0 0 0;
+                height: 450px;
+            }
+            .sl35-leveled-list .z2 { padding-top: 30px; }
+            .sl35-leveled-list .z3 { padding-top: 70px; }
+            .sl35-leveled-list .z4 { padding-top: 80px; }
+            .sl35-leveled-list .z5 { padding-top: 60px; }
+            .sl35-leveled-list .z7 { padding-top: 50px; }
+            .sl35-leveled-list .z8 { padding-top: 50px; }
+        </style>
+    </section>
+
+    <section class="slide slide36">
+        <h2 class="slide36__title">Puppeteer: headless vs reCAPTCHA</h2>
+        <ul class="leveled-list sl36-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/2captcha.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/anti-captcha.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/statisticks.png" />
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/youtube.png" />
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/data-sitekey.png" />
+            </li>
+            <li class="leveled-list__item z6 next">
+                <img class="slide36__img" src="./pictures/fight-captcha-headless/extra-plagin.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide36 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide36 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            .slide36 ul li::before {
+                content: '';
+            }
+            .slide36 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            .slide36__img {
+                display: block;
+                width: 100%;
+            }
+            .sl36-leveled-list {
+                margin: -30px 0 0 0;
+                height: 440px;
+            }
+            .sl36-leveled-list .z3{
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+
+            .sl36-leveled-list .z1 { padding-top: 30px; }
+            .sl36-leveled-list .z2 { padding-top: 40px; }
+            .sl36-leveled-list .z4 { padding-top: 40px; }
+            .sl36-leveled-list .z6 { padding-top: 40px; }
+        </style>
+    </section>
+
+    <section class="slide slide37">
+        <h2 class="slide37__title">Puppeteer vs ShadowRoot</h2>
+        <ul class="leveled-list sl37-leveled-list">
+            <li class="leveled-list__item z0">
+                <img class="slide37__img" src="./pictures/shadow-root/mdn.png" />
+                <img class="slide37__img" src="./pictures/shadow-root/mdn2.png" />
+            </li>
+            <li class="leveled-list__item z1 next">
+                <img class="slide37__img" src="./pictures/shadow-root/custom-elements-input.png" />
+            </li>
+            <li class="leveled-list__item z2 next">
+                <img class="slide37__img" src="./pictures/shadow-root/custom-elements-div.png" />
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img class="slide37__img" src="./pictures/shadow-root/html.png" />
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img class="slide37__img" src="./pictures/shadow-root/dom-closed.png" />
+                <img class="slide37__img" src="./pictures/shadow-root/querySelector.png" />
+            </li>
+            <li class="leveled-list__item z5 next">
+                <img class="slide37__img" src="./pictures/shadow-root/pistol.png" />
+                <img class="slide37__img slide37__img_read-only" src="./pictures/shadow-root/read-only.png" />
+            </li>
+            <li class="leveled-list__item z6 next">
+                <img class="slide37__img" src="./pictures/shadow-root/bypass-shadow-root.png" />
+            </li>
+            <li class="leveled-list__item z7 next">
+                <img class="slide37__img" src="./pictures/shadow-root/code1.png" />
+            </li>
+            <li class="leveled-list__item z8 next">
+                <img class="slide37__img" src="./pictures/shadow-root/code2.png" />
+            </li>
+            <li class="leveled-list__item z9 next">
+                <img class="slide37__img" src="./pictures/shadow-root/code3.png" />
+            </li>
+            <li class="next"></li>
+        </ul>
+        <style>
+            .slide37 {
+                padding-top: 20px;
+                --slide-side: 60px;
+            }
+            .slide37 p {
+                line-height: 1.5em;
+                margin: 0 0 5px 0;
+            }
+            h2.slide37__title {
+                margin-bottom: 15px;
+            }
+            .slide37 ul li::before {
+                content: '';
+            }
+            .slide37 ul li ul {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                height: 85%;
+                margin: 0;
+            }
+            .slide37__img {
+                display: block;
+                width: 100%;
+            }
+            .slide37__img_read-only {
+                position: absolute;
+                width: 300px;
+                left: 295px;
+                top: 180px;
+            }
+            .sl37-leveled-list {
+                margin: -30px 0 0 0;
+                height: 460px;
+            }
+            .sl37-leveled-list .z0 { padding-top: 40px; }
+            .sl37-leveled-list .z3 { padding-top: 80px; }
+            .sl37-leveled-list .z6 { padding-top: 100px; }
+            .sl37-leveled-list .z7 { padding-top: 50px; }
+            .sl37-leveled-list .z8 { padding-top: 40px; }
+        </style>
+    </section>
+
+    <section class="slide slide38">
+        <h2 class="slide38__title">Настоящая боль</h2>
+        <img class="slide38__img_full" src="./pictures/real-scrapping-pain/pain.jpg" />
+        <img class="slide38__img_uglified-classes" src="./pictures/real-scrapping-pain/uglified-classes.png" />
+        <style>
+            .slide38 {
+                padding: 0px;
+                --slide-side: 60px;
+            }
+            h2.slide38__title {
+                position: absolute;
+                z-index: 1;
+                left: 60px;
+                color: #FFF;
+            }
+            .slide38__img_full {
+                position: fixed;
+                left: 0;
+                top: 0;
+            }
+            .slide38__img_uglified-classes {
+                position: absolute;
+                top: 180px;
+                left: 30px;
+                width: 470px;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide39">
+        <h2>Puppeteer для пререндереринга SPA</h2>
+        <ul class="leveled-list sl39-leveled-list">
+            <li class="leveled-list__item z0">
+                <div class="scanning">
+                    <img class="slide39__img scanning_background" src="./pictures/puppeteer-as-prerenderer/scaning1.png" />
+                    <p class="scanning__bot scanning__bot_yandex">
+                        <img class="scanning__img" src="./pictures/puppeteer-as-prerenderer/yandex.png">
+                        YandexBot
+                    </p>
+                    <p class="scanning__bot scanning__bot_google">
+                        <img class="scanning__img scanning__img_google" src="./pictures/puppeteer-as-prerenderer/google.png">
+                        GoogleBot
+                    </p>
+                    <!-- <img class="scanning_google" src="./pictures/puppeteer-as-prerenderer/google1.png" /> -->
+                    <!-- <img class="scanning_yandex" src="./pictures/puppeteer-as-prerenderer/yandex1.png" /> -->
+                    <ul class="scanning-type-ul">
+                        <li class="scanning-type scanning-type_1 next">SSR</li>
+                        <li class="scanning-type scanning-type_2 next">SSR</li>
+                        <li class="scanning-type scanning-type_3 next">Static</li>
+                        <li class="scanning-type scanning-type_4 next">SSR</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="leveled-list__item z1 next">
+                <ul class="scanning">
+                    <li>
+                        <div class="scanning-spa">
+                            <img class="scanning-spa__img" src="./pictures/puppeteer-as-prerenderer/boys.png" >
+                            <img class="scanning-spa__img" src="./pictures/puppeteer-as-prerenderer/spa-detected.png">
+                            <img class="scanning-spa__img_google1" src="./pictures/puppeteer-as-prerenderer/google.png">
+                            <img class="scanning-spa__img_google2" src="./pictures/puppeteer-as-prerenderer/google.png">
+                            <img class="scanning-spa__img_yandex1" src="./pictures/puppeteer-as-prerenderer/yandex.png">
+                            <img class="scanning-spa__img_yandex2" src="./pictures/puppeteer-as-prerenderer/yandex.png">
+                            <img class="scanning-spa__img_react" src="./pictures/puppeteer-as-prerenderer/react.jpg">
+                        </div>
+                    </li>
+                    <li class="next">
+                        <img class="scanning-spa__img_body" src="./pictures/puppeteer-as-prerenderer/body.png">
+                    </li>
+                </ul>
+            </li>
+            <li class="leveled-list__item z1 next">
+                <img class="slide39__img " src="./pictures/puppeteer-as-prerenderer/goodbye.png">
+                <p class="seo-police">SEO<br>POLICE</p>
+            </li>
+            <li class="next"></li>
+        </ul>
+
+        <style>
+            ul.sl39-leveled-list {
+                height: 425px;
+            }
+            .slide39__img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .scanning {
+                position: relative;
+                margin: 0 !important;
+                overflow: hidden;
+            }
+            .scanning__img {
+                width: 40px;
+                display: inline-block;
+            }
+            .scanning__img_google {
+                width: 32px;
+                margin-right: 4px;
+            }
+            .scanning__bot {
+                color: #ffffff;
+                font-weight: bold;
+                width: 180px;
+                display: flex;
+                align-items: center;
+                align-content: center;
+                letter-spacing: 2px;
+                text-shadow: 2px 2px 2px #111;
+            }
+            .scanning__bot_yandex {
+                position: absolute;
+                right: 175px;
+
+                bottom: 53px;
+                transform: rotateZ(-18deg);
+            }
+            .scanning__bot_google {
+                position: absolute;
+                right: -10px;
+                bottom: 108px;
+                transform: rotateZ(-17deg);
+            }
+            .scanning-type-ul {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                color: #FFF;
+            }
+            .scanning-type {
+                position: absolute;
+                text-shadow: 1px 2px 0px #111;
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            .scanning-type_1 {
+                right: 428px;
+                top: 50px;
+            }
+            .scanning-type_2 {
+                right: 290px;
+                top: 50px;
+            }
+            .scanning-type_3 {
+                right: 195px;
+                top: 160px;
+            }
+            .scanning-type_4 {
+                right: 182px;
+                top: 55px;
+            }
+
+            .scanning-spa {
+                display: flex;
+            }
+            .scanning-spa__img {
+                height: 420px
+            }
+            .scanning-spa__img_react {
+                position: absolute;
+                width: 60px;
+                right: 200px;
+                bottom: 60px;
+                transform: rotate(15deg);
+            }
+            .scanning-spa__img_body {
+                position: absolute;
+                width: 500px;
+                left: 110px;
+                bottom: 65px;
+                transform: rotate(-5deg);
+            }
+            .scanning-spa__img_google1 {
+                position: absolute;
+                width: 50px;
+                top: 255px;
+                left: 50px;
+                transform: rotateX(45deg) rotatez(-31deg);
+            }
+            .scanning-spa__img_google2 {
+                position: absolute;
+                width: 45px;
+                top: 241px;
+                left: 226px;
+                transform: rotateX(49deg) rotatez(15deg);
+            }
+            .scanning-spa__img_yandex1 {
+                position: absolute;
+                width: 25px;
+                top: 155px;
+                left: 383px;
+                transform: rotate(11deg);
+            }
+            .scanning-spa__img_yandex2 {
+                position: absolute;
+                width: 30px;
+                left: 583px;
+                bottom: 85px;
+                transform: rotate(-5deg);
+            }
+            .seo-police {
+                position: absolute;
+                text-align: center;
+                color: #FFF;
+                font-weight: bold;
+                letter-spacing: 2px;
+                bottom: 60px;
+                left: 80px;
+                transform: rotate(-10deg);
+                font-size: 34px;
+                line-height: 1.2;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide40">
+        <h2>Puppeteer для пререндереринга SPA</h2>
+        <ul class="leveled-list sl40-leveled-list">
+            <li class="leveled-list__item z0">
+                <img
+                    class="slide40__img"
+                    src="./pictures/puppeteer-as-prerenderer/code/1-server-if-not-a-bot.png"
+                >
+            </li>
+            <li class="leveled-list__item z2 next">
+                <img
+                    class="slide40__img"
+                    src="./pictures/puppeteer-as-prerenderer/code/3-server-if-its-a-bot.png"
+                >
+            </li>
+            <li class="leveled-list__item z3 next">
+                <img
+                    class="slide40__img"
+                    src="./pictures/puppeteer-as-prerenderer/code/4-ssr-fn-cache.png"
+                >
+            </li>
+            <li class="leveled-list__item z4 next">
+                <img
+                    class="slide40__img"
+                    src="./pictures/puppeteer-as-prerenderer/code/5-ssr-fn-remove-scripts.png"
+                >
+            </li>
+            <li class="leveled-list__item z9 next">
+                <img
+                    class="slide40__img"
+                    src="./pictures/puppeteer-as-prerenderer/code/10-server-handle-ssr-reponse.png"
+                >
+            </li>
+            <li class="next"></li>
+        </ul>
+
+        <style>
+            ul.sl40-leveled-list {
+                height: 435px;
+            }
+            .slide40__img {
+                display: block;
+                width: 100%;
+            }
+            .slide40 .z1 { padding-top: 40px; }
+            .slide40 .z4 { padding-top: 40px; }
+            .slide40 .z5 { padding-top: 30px; }
+            .slide40 .z7 { padding-top: 60px; }
+            .slide40 .z9 { padding-top: 30px; }
+            .slide40 .z10 { padding-top: 60px; }
+        </style>
+    </section>
+
+    <section class="slide slide41">
+        <div class="slide41__img"></div>
+        <h1>Помогайте мамам</h1>
+        <style>
+            .slide41 {
+                /* color: transparent; */
+                padding: 0;
+                --slide-side: 0px;
+                --ribbon-size: 0px;
+            }
+            .slide41:after {
+                color: transparent;
+            }
+            .slide41__img {
+                position: fixed;
+                top: 0;
+                left: 0;
+                /* display: block; */
+                width: 100%;
+                height: 100vh;
+                background-image: url('./pictures/mama.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        </style>
+    </section>
+
+    <section class="slide slide42">
+        <div class="qr"></div>
+        <style>
+            .slide42 {
+                color: transparent;
+                padding: 0;
+                --slide-side: 0px;
+                --ribbon-size: 0px;
+            }
+            .slide42:after { color: transparent; }
+            .qr {
+                margin: 0 auto;
+                height: 500px;
+                width: 500px;
+                background-color: #111;
+            }
+        </style>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.js"></script>
+    <!-- Copyright © 2020 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
+
+
